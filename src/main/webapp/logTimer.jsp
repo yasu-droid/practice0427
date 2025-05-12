@@ -35,7 +35,7 @@ try {
     stmt.setTimestamp(4, Timestamp.valueOf(formattedEnd));
     stmt.executeUpdate();
 
-    out.println("記録に成功しました。");
+    out.println("記録に成功しました!");
 
 } catch (Exception e) {
     out.println("エラー発生: " + e.getMessage());
