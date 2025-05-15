@@ -1,6 +1,7 @@
 package classes;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,9 +36,15 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*response.setContentType("text/html;charset=Shift_JIS");
+		response.setContentType("text/html;charset=Shift_JIS");
 		PrintWriter out = response.getWriter();
-		out.println("hello");*/
+
+		String id = request.getParameter("id");
+		String pw = request.getParameter("loginPw");
+		
+		out.println(id + pw);
+		
+		
 		
 	}
 
