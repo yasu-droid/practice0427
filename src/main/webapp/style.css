@@ -1,11 +1,62 @@
 @charset "UTF-8";
 
-body {
-	font-family: BIZ UDPゴシック;
+.login {
+	font-family: "Segoe UI", "Helvetica Neue", "Arial", sans-serif;
+
+	text-align: center;
+	background: linear-gradient(110deg, #00ffff, #9999ff);
+
+}
+
+.timer {
+	font-family: BIZ UDP;
 
 	text-align: center;
 }
 
-h1 {
+#loginBox {
+	background-color: white;
+	width: 210px;
+	height: 220px;
+	margin: 0 auto;
+	padding: 10px;
+	border-radius: 7px;
+}
 
+#loginTitle {
+	font-size: 30px;
+	font-weight: bold;
+	margin-top: 0.5vh;
+}
+
+
+
+#loginID {
+	margin: 1vh;
+	border-radius: 7px;
+	height: 20px;
+	border: solid 2px lightgray;
+}
+
+#loginPw {
+	margin: 0.1vh;
+	border-radius: 7px;
+	height: 20px;
+	border: solid 2px lightgray;
+}
+
+#loginBtn {
+	background-color: #4a90e2;
+	color: white;
+	width: 180px;
+	height: 25px;
+	border-radius: 7px;
+	border-radius: 7px;
+	border: none;
+
+
+}
+
+.errorMes{
+color : red;
 }

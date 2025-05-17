@@ -11,7 +11,7 @@
 <script src ="js/countdown_time.js"></script>
 </head>
 
-<body>
+<body class = "timer">
 	<!-- HTMLコメント -->
 	<h2>タイマー</h2>
 	

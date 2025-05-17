@@ -20,7 +20,7 @@ Connection conn = null;
 PreparedStatement stmt = null;
 
 try {
-    String dbUrl = "jdbc:postgresql://localhost:5432/time_data";
+    String dbUrl = "jdbc:postgresql://localhost:5432/timer_log";
     String dbUserName = "postgres";
     String dbPassword = "password";
 
