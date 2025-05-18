@@ -6,21 +6,17 @@
 <meta charset="UTF-8">
 <title>ログイン</title>
 <link rel="stylesheet" href="style.css">
-<script src=""></script>
 </head>
 <body class="login">
 	<h1>ログインページ</h1>
-
-	<!-- エラーメッセージがあれば表示 -->
-
 
 	<div id="loginBox">
 		<div id="loginTitle">Login</div>
 		<form action="login" method="post">
 			<p id="loginText">
-				<input type="text" id="loginID" name="id" placeholder="loginID">
-				<br> <input type="password" id="loginPw" name="loginPw"
-					placeholder=" Password">
+				<input type="text" id="loginID" name="id" placeholder="loginID" required>
+				<br>
+				<input type="password" id="loginPw" name="loginPw" placeholder="Password" required>
 			</p>
 			<p>
 				<input type="submit" value="Log in" id="loginBtn">
@@ -28,19 +24,16 @@
 			<p>
 				<a href="">新規会員登録</a>
 			</p>
-
 		</form>
+
 		<%
 		String error = (String) request.getAttribute("error");
-		%>
-		<%
 		if (error != null) {
 		%>
-		<p class="errorMes"><%=error%></p>
+			<p class="errorMes"><%=error %></p>
 		<%
 		}
 		%>
 	</div>
-
 </body>
 </html>

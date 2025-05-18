@@ -12,8 +12,12 @@
 </head>
 
 <body class = "timer">
+
+	<jsp:include page ="header.jsp">
+		<jsp:param name = "title" value ="timer"/>
+	</jsp:include>
 	<!-- HTMLコメント -->
-	<h2>タイマー</h2>
+	<!--  <h2>タイマー</h2> --> 
 	
 	<form>
 	<label for= "minutes">分を選択:</label>
