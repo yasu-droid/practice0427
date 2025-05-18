@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -27,13 +28,21 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		//ログインIDの取得//
+		HttpSession session = request.getSession(false);
+		//セッションが存在する場合は破棄
+		if (session != null) {
+			session.invalidate();
+		}
+
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
 		String id = request.getParameter("id");
 		String pw = request.getParameter("loginPw");
 
-		String dbUrl = "jdbc:postgresql://localhost:5432/users";
+		// PostgreSQL DB接続情報
+		String dbUrl = "jdbc:postgresql://localhost:5432/time_data";
 		String dbUserName = "postgres";
 		String dbPassword = "password";
 
@@ -42,11 +51,18 @@ public class LoginServlet extends HttpServlet {
 		ResultSet rs = null;
 
 		try {
+			// JDBCドライバをロード
 			Class.forName("org.postgresql.Driver");
+
+			//セッションを新規で作成
+			session = request.getSession(true);
+			request.setCharacterEncoding("UTF-8");
+			//String name = request.getParameter("name");
+
 			// DB接続
 			conn = DriverManager.getConnection(dbUrl, dbUserName, dbPassword);
 
-			// SQL（loginテーブルからIDとPW一致するレコードを探す）
+			// SQL文
 			String sql = "SELECT * FROM users WHERE loginId = ? AND loginPw = ?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, id);
@@ -57,7 +73,13 @@ public class LoginServlet extends HttpServlet {
 
 			if (rs.next()) {
 				// ログイン成功
-				response.sendRedirect("/timer.jsp");
+				//DBからnameを取得  
+				String name = rs.getString("name");
+				//ログイン名をセッションで保持する
+				session.setAttribute("name", name);
+
+				response.sendRedirect("timer.jsp");
+
 			} else {
 				// ログイン失敗
 				request.setAttribute("error", "ログインIDまたはパスワードが間違えています。");
@@ -67,11 +89,9 @@ public class LoginServlet extends HttpServlet {
 		} catch (SQLException e) {
 			out.println("データベースエラー: " + e.getMessage());
 		} catch (ClassNotFoundException e) {
-			// TODO 自動生成された catch ブロック
 			out.println("ドライバが見つかりません: " + e.getMessage());
-			e.printStackTrace();
 		} finally {
-			// リソースを閉じる
+			// クローズ処理
 			try {
 				if (rs != null)
 					rs.close();
