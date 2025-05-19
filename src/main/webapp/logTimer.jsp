@@ -2,11 +2,14 @@
 <%
 request.setCharacterEncoding("UTF-8");
 
+
 String durationStr = request.getParameter("duration");
 String startStr = request.getParameter("start");
 String endStr = request.getParameter("end");
+String loginid =(String) session.getAttribute("loginid");
+String details = request.getParameter("details");
 
-if (durationStr == null || startStr == null || endStr == null) {
+if (durationStr == null || startStr == null || endStr == null || loginid == null || details == null) {
     out.println("必要なデータが送信されていません。");
     return;
 }
@@ -27,12 +30,14 @@ try {
     Class.forName("org.postgresql.Driver");
     conn = DriverManager.getConnection(dbUrl, dbUserName, dbPassword);
 
-    String sql = "INSERT INTO timer_log(duration_minutes, log_date, start_time, end_time) VALUES (?, ?, ?, ?)";
+    String sql = "INSERT INTO timer_log(duration_minutes, log_date, start_time, end_time ,loginid, details) VALUES (?, ?, ?, ?, ?, ?)";
     stmt = conn.prepareStatement(sql);
     stmt.setInt(1, duration);
     stmt.setDate(2, java.sql.Date.valueOf(formattedDate));
     stmt.setTimestamp(3, Timestamp.valueOf(formattedStart));
     stmt.setTimestamp(4, Timestamp.valueOf(formattedEnd));
+    stmt.setString(5,loginid);
+    stmt.setString(6,details);
     stmt.executeUpdate();
 
     out.println("記録に成功しました!");

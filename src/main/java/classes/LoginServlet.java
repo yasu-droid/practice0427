@@ -73,10 +73,12 @@ public class LoginServlet extends HttpServlet {
 
 			if (rs.next()) {
 				// ログイン成功
-				//DBからnameを取得  
+				//DBからname,loginidを取得  
 				String name = rs.getString("name");
-				//ログイン名をセッションで保持する
+				String loginid = rs.getString("loginid");
+				//ログイン名,loginidをセッションで保持する
 				session.setAttribute("name", name);
+				session.setAttribute("loginid", loginid);
 
 				response.sendRedirect("timer.jsp");
 

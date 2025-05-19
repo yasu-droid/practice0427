@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="javax.servlet.http.HttpSession" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="javax.servlet.http.HttpSession"%>
 <%
 request.setCharacterEncoding("UTF-8");
 
@@ -10,12 +11,14 @@ String title = request.getParameter("title");
 
 String name = null;
 if (session != null) {
-    name = (String) session.getAttribute("name");
+	name = (String) session.getAttribute("name");
 }
 %>
 
-
+<link rel="stylesheet" href="style.css">
 
 <!-- 通常表示 -->
-<h2><%= title != null ? title : "タイトル未設定" %></h2>
-<p>ようこそ、<%= name != null ? name : "ゲスト" %> さん</p>
+<div class = "header">
+	<div class="title"><%=title != null ? title : "タイトル未設定"%></div>
+	<div class="name"><%=name != null ? name : "ゲスト"%></div>
+</div>

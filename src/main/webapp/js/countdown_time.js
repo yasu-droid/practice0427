@@ -23,7 +23,8 @@ function startTimer() {
         body:
           "duration=" + encodeURIComponent(select.value) +
           "&start=" + encodeURIComponent(startTimestamp.toISOString()) +
-          "&end=" + encodeURIComponent(endTimestamp.toISOString())
+          "&end=" + encodeURIComponent(endTimestamp.toISOString()) +
+          "&details=" + encodeURIComponent(document.getElementById("details").value)
       })
       .then(response => response.text())
       .then(data => {
