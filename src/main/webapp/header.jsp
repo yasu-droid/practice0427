@@ -19,6 +19,6 @@ if (session != null) {
 
 <!-- 通常表示 -->
 <div class = "header">
-	<div class="title"><%=title != null ? title : "タイトル未設定"%></div>
-	<div class="name"><%=name != null ? name : "ゲスト"%></div>
+	<p class="title"><%=title != null ? title : "タイトル未設定"%></p>
+	<p class="name"><%=name != null ? name : "ゲスト"%></p>
 </div>

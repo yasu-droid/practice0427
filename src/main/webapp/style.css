@@ -1,18 +1,24 @@
 @charset "UTF-8";
+
 /*ヘッダー*/
-.header{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    gap: 8px;
-}
-.title{
-	    grid-column-start: 3;
-	    font-size: 3.5svh;
+.header {
+	display: flex;
+	justify-content: center; /* 中央に配置 */
+	align-items: center;     /* 縦方向も中央（必要なら） */
+	height: 60px;            /* 高さ指定（任意） */
 }
 
-.name{
-	    grid-column-start: 5;
+.title {
+ margin: 0 auto;       /* 中央寄せ */
+ position: absolute;   /* 中央に固定表示させるために使う */
+ left: 50%;
+ transform: translateX(-50%);
+ font-size: 24px;
+ font-weight: bold;
+}
+
+.name {
+ margin-left: auto;
 }
 
 /*ログイン画面*/
@@ -21,7 +27,6 @@
 
 	text-align: center;
 	background: linear-gradient(110deg, #00ffff, #9999ff);
-
 }
 
 #loginBox {
@@ -67,8 +72,8 @@
 
 }
 
-.errorMes{
-color : red;
+.errorMes {
+	color: red;
 }
 
 /*タイマー画面*/
@@ -76,13 +81,14 @@ color : red;
 	font-family: BIZ UDP;
 
 	text-align: center;
-	
+
 
 }
-.startBtn{
+
+.startBtn {
 	margin-top: 1vh;
 }
 
-.timer{
-		margin-top: 2vh;
+.timer {
+	margin-top: 2vh;
 }
