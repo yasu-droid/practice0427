@@ -8,7 +8,6 @@ request.setCharacterEncoding("UTF-8");
 String title = request.getParameter("title");
 
 // セッション取得
-
 String name = null;
 if (session != null) {
 	name = (String) session.getAttribute("name");
@@ -23,13 +22,17 @@ if (session != null) {
 </script>
 <!-- 通常表示 -->
 <div class="header">
-	<p class="title"><%=title != null ? title : "タイトル未設定"%></p>
-	<p class="name">
-		<%=name != null ? name : "ゲスト"%>
-		<a href="#" onclick="js_alert()"></a>
-	</p>
 
+	<div class="title"><%=title != null ? title : "タイトル未設定"%></div>
 
+	<details class="accordion-005">
+		<summary>
+			<div class="name">
+				<%=name != null ? name : "ゲスト"%>
+			</div>
+		</summary>
+		<p <a href="#" onclick="js_alert()"></a>>ここ。</p>
 
+	</details>
 </div>
 

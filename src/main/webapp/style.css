@@ -1,49 +1,74 @@
 @charset "UTF-8";
 
-/*ヘッダー*/
+/* ヘッダー */
 .header {
 	display: flex;
 	justify-content: center;
-	/* 中央に配置 */
 	align-items: center;
-	/* 縦方向も中央（必要なら） */
+	position: relative;
+	background-color: cadetblue;
 	height: 60px;
-	/* 高さ指定（任意） */
-	background-color: #00ffff;
-	border: 2px solid #000000;
+	padding: 0 20px;
 }
 
 .title {
-	margin: 0 auto;
-	/* 中央寄せ */
 	position: absolute;
-	/* 中央に固定表示させるために使う */
 	left: 50%;
 	transform: translateX(-50%);
 	font-size: 24px;
 	font-weight: bold;
+	color: white;
+	z-index: 2; /* タイトルを前面に */
 }
 
-.name {
-	margin-left: auto;
-	color: black;
+.accordion-005 {
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	max-width: 150px;
+	z-index: 1; /* タイトルの後ろに */
+}
 
-	/* ホバー時のスタイル */
-	&:hover {
+.accordion-005 summary {
+	border-left: 5px solid #2589d0;
+	background-color: #f2f2f2;
+	color: #333333;
+	font-weight: 600;
+	cursor: pointer;
+	list-style: none;
+	padding: 5px;
+}
+
+.accordion-005 summary::-webkit-details-marker {
+	display: none;
+}
+
+.accordion-005 p {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	padding: 5px;
+	opacity: 0;
+	transform: translateY(-10px);
+	transition: transform .3s, opacity .3s;
+	white-space: nowrap;
+	z-index: 3;
 		cursor: pointer;
-		background-color: #bee1de;
-	}
-
-	/* タブフォーカス時のスタイル */
-	&:focus-visible {
-		outline: dashed #00a5a0;
-	}
 }
 
-/*ログイン画面*/
+.accordion-005[open] p {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+
+/* 以下は元々書いてあったタイマー関連のCSS部分 */
+/* ログイン画面 */
 .login {
 	font-family: "Segoe UI", "Helvetica Neue", "Arial", sans-serif;
-
 	text-align: center;
 	background: linear-gradient(110deg, #00ffff, #9999ff);
 }
@@ -62,8 +87,6 @@
 	font-weight: bold;
 	margin-top: 0.5vh;
 }
-
-
 
 #loginID {
 	margin: 1vh;
@@ -85,23 +108,22 @@
 	width: 180px;
 	height: 25px;
 	border-radius: 7px;
-	border-radius: 7px;
 	border: none;
-
-
 }
 
 .errorMes {
 	color: red;
 }
 
-/*タイマー画面*/
+/* タイマー画面 */
+.timer {
+	margin-top: 5vh;
+}
+
 .timerBox {
 	font-family: BIZ UDP;
-
 	text-align: center;
-
-
+	background-color: gray;
 }
 
 .startBtn {
