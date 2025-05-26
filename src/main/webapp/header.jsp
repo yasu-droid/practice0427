@@ -31,7 +31,9 @@ if (session != null) {
 				<%=name != null ? name : "ゲスト"%>
 			</div>
 		</summary>
-		<p <a href="#" onclick="js_alert()"></a>>ここ。</p>
+		<p>
+			<a href="#" onclick="js_alert()"></a>ここ。
+		</p>
 
 	</details>
 </div>
