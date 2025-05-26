@@ -16,9 +16,20 @@ if (session != null) {
 %>
 
 <link rel="stylesheet" href="style.css">
-
+<script>
+	function js_alert() {
+		alert("Pushed!");
+	}
+</script>
 <!-- 通常表示 -->
-<div class = "header">
+<div class="header">
 	<p class="title"><%=title != null ? title : "タイトル未設定"%></p>
-	<p class="name"><%=name != null ? name : "ゲスト"%></p>
+	<p class="name">
+		<%=name != null ? name : "ゲスト"%>
+		<a href="#" onclick="js_alert()"></a>
+	</p>
+
+
+
 </div>
+

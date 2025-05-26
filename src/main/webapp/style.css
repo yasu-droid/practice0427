@@ -3,22 +3,41 @@
 /*ヘッダー*/
 .header {
 	display: flex;
-	justify-content: center; /* 中央に配置 */
-	align-items: center;     /* 縦方向も中央（必要なら） */
-	height: 60px;            /* 高さ指定（任意） */
+	justify-content: center;
+	/* 中央に配置 */
+	align-items: center;
+	/* 縦方向も中央（必要なら） */
+	height: 60px;
+	/* 高さ指定（任意） */
+	background-color: #00ffff;
+	border: 2px solid #000000;
 }
 
 .title {
- margin: 0 auto;       /* 中央寄せ */
- position: absolute;   /* 中央に固定表示させるために使う */
- left: 50%;
- transform: translateX(-50%);
- font-size: 24px;
- font-weight: bold;
+	margin: 0 auto;
+	/* 中央寄せ */
+	position: absolute;
+	/* 中央に固定表示させるために使う */
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 24px;
+	font-weight: bold;
 }
 
 .name {
- margin-left: auto;
+	margin-left: auto;
+	color: black;
+
+	/* ホバー時のスタイル */
+	&:hover {
+		cursor: pointer;
+		background-color: #bee1de;
+	}
+
+	/* タブフォーカス時のスタイル */
+	&:focus-visible {
+		outline: dashed #00a5a0;
+	}
 }
 
 /*ログイン画面*/

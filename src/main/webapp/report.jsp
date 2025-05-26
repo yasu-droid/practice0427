@@ -16,6 +16,10 @@
 	src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@next/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 </head>
 <body>
+
+	<jsp:include page="header.jsp">
+		<jsp:param name="title" value="timer" />
+	</jsp:include>
 	<div style="width: 400px">
 		<canvas id="mychart-bar"></canvas>
 	</div>
