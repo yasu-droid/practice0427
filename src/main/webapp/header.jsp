@@ -8,7 +8,6 @@ request.setCharacterEncoding("UTF-8");
 String title = request.getParameter("title");
 
 // セッション取得
-
 String name = null;
 if (session != null) {
 	name = (String) session.getAttribute("name");
@@ -18,6 +17,7 @@ if (session != null) {
 <link rel="stylesheet" href="style.css">
 
 <!-- 通常表示 -->
+<<<<<<< HEAD
 <body>
 	<p class="title"><%=title != null ? title : "タイトル未設定"%></p>
 	<nav class="menu_outer">
@@ -30,8 +30,6 @@ if (session != null) {
 			<li>report</li>
 			<li>logout</li>
 		</ul>-->
-
-	</nav>
-	<script src="js/headerMenu.js"></script>
-</body>
-
+=======
+<div class="header">
+>>>>>>> branch 'master' of https://github.com/yasu-droid/practice0427.git
