@@ -17,7 +17,7 @@ if (session != null) {
 <link rel="stylesheet" href="style.css">
 
 <!-- 通常表示 -->
-<<<<<<< HEAD
+
 <body>
 	<p class="title"><%=title != null ? title : "タイトル未設定"%></p>
 	<nav class="menu_outer">
@@ -25,11 +25,10 @@ if (session != null) {
 			<%=name != null ? name : "ゲスト"%>
 			<div class="toggle_btn"></div>
 		</div>
-		<!--  		<ul class="menu_container">
+		<ul class="menu_container">
 			<li>timer</li>
 			<li>report</li>
 			<li>logout</li>
-		</ul>-->
-=======
+		/ul>
+
 <div class="header">
->>>>>>> branch 'master' of https://github.com/yasu-droid/practice0427.git
